@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#221610">
+<title>给梁师婕的一封信</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:"KaiTi","STKaiti","Kaiti SC","DFKai-SB","SimSun","Songti SC","Noto Serif SC",serif;background:#221610;overflow:hidden;user-select:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation;overscroll-behavior:none}
+
+/* ============ 场景一：阳光窗台 ============ */
+.scene{position:fixed;inset:0;z-index:1;overflow:hidden;
+  background:radial-gradient(100% 75% at 50% 0%,#513a2a 0%,#3b2819 42%,#211510 100%);
+  transition:filter 1s ease,opacity .6s ease,visibility .6s}
+.scene::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(130% 100% at 50% 38%,transparent 55%,rgba(18,9,3,.55) 100%)}
+.scene.dim{filter:brightness(.48) blur(4px)}
+.scene.dark{filter:brightness(.2) blur(12px)}
+
+.window{position:absolute;left:50%;top:7%;transform:translateX(-50%);
+  width:min(66vw,940px);height:34vh;
+  background:linear-gradient(180deg,#fff6d2 0%,#ffe8ad 55%,#ffd98a 100%);
+  border:clamp(8px,1.3vh,16px) solid #6b4a2b;border-radius:10px;
+  box-shadow:0 0 70px rgba(255,220,150,.4),inset 0 0 46px rgba(255,255,255,.45)}
+.sun{position:absolute;left:7%;top:8%;width:26%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,#fffdf2 0%,#fff0b8 52%,rgba(255,240,184,0) 74%);
+  animation:glow 6s ease-in-out infinite}
+@keyframes glow{0%,100%{opacity:.85}50%{opacity:1}}
+.curtain{position:absolute;top:0;bottom:0;width:9%;
+  background:linear-gradient(90deg,rgba(190,88,58,.95),rgba(158,70,46,.85));
+  box-shadow:0 0 16px rgba(0,0,0,.25)}
+.curtain::after{content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,transparent 0 9px,rgba(255,235,210,.15) 9px 18px)}
+.curtain.l{left:0;border-radius:4px 0 0 4px}
+.curtain.r{right:0;border-radius:0 4px 4px 0}
+.bar-h{position:absolute;left:0;right:0;top:50%;height:clamp(6px,.8vh,11px);background:#6b4a2b;transform:translateY(-50%)}
+.bar-v{position:absolute;top:0;bottom:0;left:50%;width:clamp(6px,.8vh,11px);background:#6b4a2b;transform:translateX(-50%)}
+
+.title{position:absolute;left:50%;top:8.6%;transform:translateX(-50%);white-space:nowrap;
+  color:rgba(112,76,42,.85);font-size:clamp(14px,2vh,20px);letter-spacing:.35em;
+  text-shadow:0 1px 0 rgba(255,255,255,.4)}
+
+.ray{position:absolute;top:6%;width:36vw;height:130vh;transform-origin:top center;
+  background:linear-gradient(to bottom,rgba(255,227,165,.32),rgba(255,227,165,0) 80%);
+  filter:blur(12px);animation:breathe 8s ease-in-out infinite;pointer-events:none}
+.ray1{left:16%;transform:rotate(14deg)}
+.ray2{left:38%;transform:rotate(25deg);animation-delay:-3.5s;opacity:.8}
+.ray3{left:5%;transform:rotate(4deg);animation-delay:-6s;opacity:.65}
+@keyframes breathe{0%,100%{opacity:.55}50%{opacity:1}}
+
+.light-pool{position:absolute;left:50%;top:37%;transform:translateX(-50%);width:80vw;height:10vh;
+  background:radial-gradient(ellipse at center,rgba(255,222,160,.4),rgba(255,222,160,0) 70%);
+  filter:blur(6px);pointer-events:none}
+
+.sill{position:absolute;left:0;right:0;top:41%;height:6.5vh;
+  background:linear-gradient(180deg,#91653f 0%,#75502e 38%,#5b3c22 100%);
+  border-top:2px solid rgba(255,222,160,.4);box-shadow:0 12px 26px rgba(0,0,0,.55)}
+.sill::after{content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,transparent 0 70px,rgba(0,0,0,.1) 70px 72px,transparent 72px 150px,rgba(0,0,0,.07) 150px 153px)}
+
+.plant{position:absolute;right:7%;top:calc(41% - 128px);width:92px;height:128px;pointer-events:none}
+.leaf{position:absolute;bottom:34px;left:44px;width:15px;height:66px;transform-origin:bottom center;
+  background:linear-gradient(180deg,#8bb265,#4f7c3d);border-radius:50% 50% 45% 45% / 65% 65% 35% 35%;
+  --r:0deg;animation:sway 5.5s ease-in-out infinite}
+.leaf1{--r:-34deg}
+.leaf2{--r:-10deg;animation-delay:.9s}
+.leaf3{--r:14deg;animation-delay:1.7s}
+.leaf4{--r:40deg;height:52px;animation-delay:2.6s}
+@keyframes sway{0%,100%{transform:rotate(var(--r))}50%{transform:rotate(calc(var(--r) + 5deg))}}
+.pot{position:absolute;bottom:0;left:26px;width:42px;height:36px;
+  background:linear-gradient(180deg,#b96a40,#8a4a2a);clip-path:polygon(8% 0,92% 0,80% 100%,20% 100%)}
+
+.mug{position:absolute;left:9%;top:calc(41% - 50px);width:46px;height:50px;border-radius:3px 3px 10px 10px;
+  background:linear-gradient(180deg,#ddcdb2,#b7a68c);box-shadow:0 4px 10px rgba(0,0,0,.35)}
+.mug::before{content:'';position:absolute;right:-13px;top:9px;width:13px;height:22px;
+  border:5px solid #b7a68c;border-left:none;border-radius:0 12px 12px 0}
+.steam{position:absolute;left:50%;bottom:100%}
+.steam i{position:absolute;left:0;bottom:0;width:3px;height:14px;border-radius:2px;
+  background:rgba(255,242,222,.55);filter:blur(1.5px);animation:steam 4.5s ease-in infinite}
+.steam i:nth-child(2){animation-delay:1.5s}
+.steam i:nth-child(3){animation-delay:3s}
+@keyframes steam{0%{transform:translate(0,0) scaleY(1);opacity:0}35%{opacity:.75}
+  100%{transform:translate(10px,-36px) scaleY(1.9);opacity:0}}
+
+.dust{position:absolute;inset:0;pointer-events:none}
+.dust i{position:absolute;border-radius:50%;background:rgba(255,236,190,.85);opacity:0;
+  animation:dust-float linear infinite}
+@keyframes dust-float{0%{transform:translate(0,18vh);opacity:0}12%{opacity:.75}85%{opacity:.3}
+  100%{transform:translate(3.5vw,-34vh);opacity:0}}
+
+.hint1{position:fixed;left:50%;top:57%;transform:translateX(-50%);white-space:nowrap;
+  color:rgba(255,236,205,.9);font-size:clamp(14px,2vh,19px);letter-spacing:.3em;
+  animation:pulse 2.4s ease-in-out infinite;transition:opacity .6s}
+.hint1.hide{opacity:0}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* ============ 信封 ============ */
+.envelope{position:fixed;left:50%;top:34.5%;z-index:20;
+  width:min(250px,48vw);aspect-ratio:1.8/1;
+  transform:translate(-50%,-50%) rotate(-5deg);
+  transition:top .95s cubic-bezier(.25,1.3,.35,1), left .95s cubic-bezier(.25,1.3,.35,1),
+    width .95s cubic-bezier(.25,1.3,.35,1),
+    transform .95s cubic-bezier(.25,1.3,.35,1), opacity .6s ease, filter .8s ease;
+  cursor:pointer;container-type:inline-size;perspective:1500px;
+  filter:drop-shadow(0 14px 18px rgba(0,0,0,.45))}
+.envelope.center{top:50%;left:50%;width:min(80vw,145vh);transform:translate(-50%,-50%) rotate(0deg);
+  filter:drop-shadow(0 34px 46px rgba(0,0,0,.55))}
+.envelope.gone{opacity:0;pointer-events:none}
+
+.env-wrap{position:absolute;inset:0}
+.envelope.center:not(.open) .env-wrap{animation:bob 4.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-0.9cqi) rotate(.35deg)}}
+
+.env-back{position:absolute;inset:0;z-index:2;border-radius:12px;
+  background:linear-gradient(180deg,#f0dfba 0%,#e6cfa2 100%);
+  box-shadow:inset 0 0 0 1px rgba(120,90,40,.18)}
+.peek{position:absolute;left:5%;right:5%;top:5%;height:42%;z-index:3;
+  background-color:#fbf5e6;
+  background-image:repeating-linear-gradient(to bottom,transparent 0 2.6cqi,rgba(150,170,205,.5) 2.6cqi calc(2.6cqi + .08cqi));
+  border-radius:1.2cqi 1.2cqi 0 0}
+.env-front{position:absolute;inset:0;z-index:4;border-radius:12px;
+  background:linear-gradient(180deg,#f6ead0 0%,#eedcb4 55%,#e9d3a4 100%);
+  clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%)}
+.env-front::before{content:'';position:absolute;left:0;top:55%;bottom:0;width:50%;
+  background:linear-gradient(115deg,rgba(255,255,255,.32) 0%,rgba(255,255,255,0) 60%);
+  clip-path:polygon(0 0,100% 100%,0 100%)}
+.env-front::after{content:'';position:absolute;right:0;top:55%;bottom:0;width:50%;
+  background:linear-gradient(245deg,rgba(150,105,50,.18) 0%,rgba(150,105,50,0) 60%);
+  clip-path:polygon(100% 0,0 100%,100% 100%)}
+
+.address{position:absolute;left:8%;right:8%;top:63%;z-index:6;text-align:center;
+  color:#5c4428;line-height:1.6;letter-spacing:.12em;
+  font-size:5.2cqi;text-shadow:0 1px 0 rgba(255,255,255,.4)}
+.address .for{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:.85em;margin-right:.5em}
+.address .small{display:block;font-size:2.9cqi;opacity:.75;letter-spacing:.08em;margin-top:.3em}
+
+.stamp{position:absolute;right:3.5cqi;top:3.5cqi;width:9cqi;aspect-ratio:1;z-index:5;
+  background:#fdf7e9;border:.35cqi dashed rgba(150,120,70,.65);border-radius:.5cqi;
+  display:grid;place-items:center;font-size:4.5cqi;color:#cf6a5a;
+  box-shadow:inset 0 0 0 .45cqi #fdf7e9}
+
+.env-flap{position:absolute;top:0;left:0;right:0;height:56%;z-index:5;
+  background:linear-gradient(180deg,#eeddb6 0%,#e2c892 100%);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top center;
+  transition:transform .85s cubic-bezier(.5,.1,.3,1) .1s}
+.envelope.open .env-flap{transform:rotateX(180deg)}
+
+.seal{position:absolute;left:50%;top:54%;width:7.5cqi;aspect-ratio:1;z-index:6;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle at 35% 30%,#d85a4a,#b03a2e 70%);
+  border-radius:50%;display:grid;place-items:center;
+  color:#ffe9d8;font-size:3.4cqi;line-height:1;
+  box-shadow:0 .6cqi 1.2cqi rgba(0,0,0,.3),inset 0 0 .8cqi rgba(0,0,0,.25);
+  transition:opacity .45s ease,transform .45s ease}
+.envelope.open .seal{opacity:0;transform:translate(-50%,-50%) scale(.5)}
+
+/* ============ 信纸 ============ */
+.paper{position:fixed;left:50%;top:50%;z-index:15;
+  width:min(94vw,1300px);height:min(80vh,1100px);
+  transform:translate(-50%,-50%) scale(var(--ps,.42));
+  transform-origin:center;
+  background-color:#fbf6e9;
+  background-image:
+    linear-gradient(90deg,transparent 0 6.4%,rgba(205,95,70,.5) 6.4% 6.55%,transparent 6.55% 100%),
+    repeating-linear-gradient(to bottom,transparent 0 32px,rgba(148,168,198,.5) 32px 33px);
+  border-radius:3px;
+  box-shadow:0 12px 34px rgba(0,0,0,.4);
+  overflow:hidden;opacity:0;
+  padding:7% 5.5% 5% 8.5%;
+  transition:transform 1.05s cubic-bezier(.25,.85,.3,1) .35s,opacity .45s ease .15s,box-shadow .8s ease;
+  font-size:clamp(15px,2.1vh,19px);color:#4a3826}
+.paper.show{opacity:1}
+.paper.out{transform:translate(-50%,calc(-50% - var(--out-extra,25%))) scale(var(--ps,.42))}
+.paper.full{transform:translate(-50%,-50%) scale(1);z-index:40;overflow-y:auto;user-select:text;
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+  transition:transform .9s cubic-bezier(.25,.85,.3,1),opacity .4s ease,box-shadow .8s ease}
+.paper::-webkit-scrollbar{width:8px}
+.paper::-webkit-scrollbar-thumb{background:#cbb48e;border-radius:4px}
+.paper::-webkit-scrollbar-track{background:transparent}
+
+.letter h1{font-size:1.75em;text-align:center;letter-spacing:.2em;margin-bottom:2.2em;font-weight:normal}
+.letter p{text-indent:2em;line-height:2.2;margin-bottom:1.15em}
+.letter .song{text-indent:0;text-align:center;color:#8a6a48;letter-spacing:.08em;margin:1.8em 0}
+.letter .sign{text-align:right;margin-top:2.4em;padding-right:1.5em;font-size:1.12em}
+.letter .date{text-align:right;padding-right:1.5em;margin-top:1em;color:#7a6048}
+
+.prank{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.prank-big{font-size:clamp(19px,4vh,32px);line-height:2.4;letter-spacing:.18em;color:#57422a;transform:rotate(-1.5deg)}
+.prank-date{margin-top:9vh;font-size:.85em;color:#9a8260;letter-spacing:.12em}
+
+/* ============ 其他 UI ============ */
+.hint2{position:fixed;left:50%;top:91%;transform:translateX(-50%);z-index:25;white-space:nowrap;
+  color:rgba(255,236,205,.85);font-size:clamp(14px,2vh,18px);letter-spacing:.3em;
+  opacity:0;pointer-events:none;transition:opacity .7s .4s;animation:pulse 2.4s ease-in-out infinite}
+.hint2.show{opacity:1;pointer-events:auto;cursor:pointer}
+
+.scroll-hint{position:fixed;left:50%;bottom:4%;transform:translateX(-50%);z-index:45;
+  color:rgba(90,70,45,.75);font-size:14px;letter-spacing:.25em;opacity:0;pointer-events:none;
+  transition:opacity .6s;animation:drop 2s ease-in-out infinite}
+.scroll-hint.show{opacity:1}
+@keyframes drop{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+.back-btn{position:fixed;right:20px;bottom:20px;z-index:50;
+  padding:10px 20px;border-radius:999px;cursor:pointer;
+  background:rgba(70,48,26,.6);color:#f3e2c2;font-size:14px;letter-spacing:.15em;
+  opacity:0;pointer-events:none;transition:opacity .5s;border:1px solid rgba(243,226,194,.25)}
+.back-btn.show{opacity:1;pointer-events:auto}
+
+/* ============ 音乐按钮 ============ */
+.music-btn{position:fixed;left:20px;bottom:20px;z-index:50;width:52px;height:52px;border-radius:50%;
+  cursor:pointer;background:rgba(70,48,26,.6);border:1px solid rgba(243,226,194,.25);
+  display:grid;place-items:center;transition:background .3s,transform .3s,box-shadow .3s,border-color .3s}
+.music-btn.playing{border-color:rgba(255,220,150,.55);box-shadow:0 0 16px rgba(255,220,150,.35)}
+.disc{width:34px;height:34px;border-radius:50%;
+  background:radial-gradient(circle,#6b4a2b 0 22%,#caa86e 23% 32%,#241a10 33% 38%,#caa86e 39% 100%);
+  display:grid;place-items:center;color:#f3e2c2;font-size:14px;
+  animation:spin 3.5s linear infinite;animation-play-state:paused}
+.music-btn.playing .disc{animation-play-state:running}
+@keyframes spin{to{transform:rotate(360deg)}}
+.music-tip{position:fixed;left:84px;bottom:36px;z-index:50;white-space:nowrap;
+  color:rgba(255,236,205,.85);font-size:13px;letter-spacing:.15em;
+  opacity:0;pointer-events:none;transition:opacity .6s;animation:pulse 2.4s ease-in-out infinite}
+.music-tip.show{opacity:1}
+.music-tip.hide{opacity:0!important;animation:none}
+
+/* ============ 主题二：八音盒 · 中世纪贵族房间 ============ */
+body.theme-mb .scene{opacity:0;visibility:hidden}
+.scene-mb{position:fixed;inset:0;z-index:1;overflow:hidden;opacity:0;visibility:hidden;
+  background:linear-gradient(180deg,#fbf8f2 0%,#f4eee2 58%,#ece4d2 58.4%,#ded5c2 100%);
+  transition:filter 1s ease,opacity .6s ease,visibility .6s}
+body.theme-mb .scene-mb{opacity:1;visibility:visible}
+.scene-mb.dim{filter:brightness(.48) blur(4px)}
+.scene-mb.dark{filter:brightness(.2) blur(12px)}
+.scene-mb::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(130% 100% at 50% 30%,transparent 55%,rgba(110,85,50,.2) 100%)}
+
+.mb-molding{position:absolute;left:0;right:0;top:0;height:2.6vh;
+  background:linear-gradient(180deg,#f7f2e7,#e9e2d0);
+  border-bottom:1px solid rgba(180,150,90,.4)}
+.mb-panels{position:absolute;left:0;right:0;top:0;height:58.4%;pointer-events:none;
+  background:repeating-linear-gradient(90deg,rgba(150,130,95,.07) 0 2px,transparent 2px 9vw)}
+.mb-warmlight{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(70% 55% at 50% 38%,rgba(255,190,110,.13),transparent 72%);
+  animation:warmFlicker 5s ease-in-out infinite}
+@keyframes warmFlicker{0%,100%{opacity:.8}30%{opacity:1}60%{opacity:.75}80%{opacity:.95}}
+.mb-floor{position:absolute;left:0;right:0;top:58.4%;bottom:0;
+  background:linear-gradient(180deg,#efe9dc 0%,#e2dbca 60%,#d6cdba 100%)}
+.mb-floor::before{content:'';position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 14vw,rgba(150,140,115,.16) 14vw calc(14vw + 2px)),
+    repeating-linear-gradient(0deg,transparent 0 9vh,rgba(150,140,115,.12) 9vh calc(9vh + 2px))}
+
+/* 哥特式拱窗 */
+.mb-archwin{position:absolute;top:12%;width:min(16vw,240px);height:36vh;overflow:hidden;
+  border-radius:50% 50% 6px 6px / 30% 30% 6px 6px;
+  background:linear-gradient(180deg,#cfe3f2 0%,#e6f0f8 45%,#f8ecd2 80%,#f0dfba 100%);
+  border:clamp(5px,.9vh,12px) solid #fdfbf7;
+  box-shadow:inset 0 0 26px rgba(255,255,255,.75),0 8px 20px rgba(120,100,60,.16)}
+.mb-archwin::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(255,255,255,.5) 100%)}
+.mb-archwin.l{left:14%}
+.mb-archwin.r{right:14%}
+.mb-mull-v{position:absolute;left:50%;top:0;bottom:0;width:clamp(4px,.6vh,8px);transform:translateX(-50%);
+  background:#fdfbf7;box-shadow:0 0 6px rgba(120,100,60,.2)}
+.mb-mull-h{position:absolute;left:0;right:0;top:42%;height:clamp(4px,.6vh,8px);
+  background:#fdfbf7;box-shadow:0 0 6px rgba(120,100,60,.2)}
+
+/* 彩绘玫瑰窗 */
+.mb-rose{position:absolute;left:50%;top:19%;transform:translate(-50%,-50%);
+  width:min(15vh,20vw);aspect-ratio:1;border-radius:50%;overflow:hidden;
+  border:clamp(4px,.7vh,10px) solid #fdfbf7;
+  background:conic-gradient(from 0deg,#e8b84e 0 45deg,#8fb8d8 45deg 90deg,#e8b84e 90deg 135deg,#d8866a 135deg 180deg,#e8b84e 180deg 225deg,#8fb8d8 225deg 270deg,#e8b84e 270deg 315deg,#d8866a 315deg 360deg);
+  box-shadow:0 6px 16px rgba(120,100,60,.18),inset 0 0 18px rgba(255,255,255,.5)}
+.mb-rose::after{content:'';position:absolute;inset:16%;border-radius:50%;
+  border:2px solid rgba(255,255,255,.7)}
+
+/* 从拱窗洒进的光 */
+.mb-ray{position:absolute;top:10%;width:22vw;height:120vh;transform-origin:top center;
+  background:linear-gradient(to bottom,rgba(255,242,210,.5),rgba(255,242,210,0) 75%);
+  filter:blur(9px);pointer-events:none;animation:breathe 8s ease-in-out infinite}
+.mb-ray.ray-m1{left:20%;transform:rotate(16deg)}
+.mb-ray.ray-m2{left:42%;transform:rotate(6deg);animation-delay:-3s;opacity:.7}
+.mb-ray.ray-m3{right:20%;transform:rotate(-16deg);animation-delay:-5.5s;opacity:.75}
+.mb-pool{position:absolute;left:50%;top:48%;transform:translateX(-50%);width:72vw;height:13vh;
+  background:radial-gradient(ellipse at center,rgba(255,240,208,.5),transparent 70%);
+  filter:blur(8px);pointer-events:none}
+
+.mb-candle{position:absolute;top:16%;width:2.2vh;height:9vh;
+  background:linear-gradient(90deg,#fdfaf2,#efe8d8 60%,#dcd2bc);
+  border-radius:.4vh;box-shadow:0 4px 10px rgba(120,100,60,.25)}
+.mb-candle::before{content:'';position:absolute;top:-1.6vh;left:50%;transform:translateX(-50%);
+  width:.5vh;height:1.6vh;background:#3a2a18}
+.mb-candle.l{left:7%}
+.mb-candle.r{right:7%}
+.mb-flame{position:absolute;left:50%;top:-5.4vh;transform:translateX(-50%);transform-origin:50% 100%;
+  width:1.6vh;height:3.4vh;border-radius:50% 50% 50% 50% / 62% 62% 38% 38%;
+  background:radial-gradient(circle at 50% 75%,#fff6d8 0%,#ffd873 35%,#ff9a3d 70%,rgba(255,120,40,0) 100%);
+  animation:flick 1.6s ease-in-out infinite}
+.mb-candle.r .mb-flame{animation-delay:-.8s}
+@keyframes flick{0%,100%{transform:translateX(-50%) scale(1) rotate(-1.5deg);opacity:.95}
+  25%{transform:translateX(-50%) scale(1.08,.92) rotate(1.5deg);opacity:1}
+  50%{transform:translateX(-50%) scale(.94,1.06) rotate(-2deg);opacity:.85}
+  75%{transform:translateX(-50%) scale(1.05,.95) rotate(1deg);opacity:1}}
+.mb-glow{position:absolute;left:50%;top:-8vh;transform:translateX(-50%);width:16vh;height:16vh;
+  border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,190,100,.22),rgba(255,190,100,0) 65%);
+  animation:breathe 3.4s ease-in-out infinite}
+
+.scene-mb .title{top:8.6%;color:#7a5f3d;font-family:Georgia,"Times New Roman",serif;
+  letter-spacing:.4em;text-shadow:0 1px 2px rgba(255,255,255,.7),0 0 12px rgba(216,186,120,.35);
+  font-size:clamp(13px,1.9vh,19px)}
+
+/* 桌子 */
+.mb-table-top{position:absolute;left:50%;top:52%;transform:translateX(-50%);
+  width:min(52vw,860px);height:3vh;border-radius:1.2vh;
+  background:linear-gradient(180deg,#ddc092 0%,#c9a86f 55%,#b8945c 100%);
+  box-shadow:0 14px 30px rgba(100,75,40,.35),inset 0 2px 0 rgba(255,255,255,.35)}
+.mb-table-apron{position:absolute;left:50%;top:55%;transform:translateX(-50%);
+  width:min(44vw,730px);height:4.5vh;border-radius:0 0 2vh 2vh;
+  background:linear-gradient(180deg,#bd9a66,#a3814e);
+  box-shadow:inset 0 -3px 6px rgba(120,90,45,.25)}
+.mb-leg{position:absolute;top:55%;width:min(3.6vw,56px);height:28vh;
+  background:linear-gradient(90deg,#bd9a66,#a3814e 70%,#8f6f42);
+  clip-path:polygon(12% 0,88% 0,78% 100%,22% 100%);
+  box-shadow:4px 8px 16px rgba(100,75,40,.3)}
+.mb-leg.l{left:calc(50% - min(19vw,320px))}
+.mb-leg.r{right:calc(50% - min(19vw,320px))}
+
+/* 蕾丝垫 */
+.mb-doily{position:absolute;left:34%;top:49%;transform:translate(-50%,-50%);
+  width:min(46vh,58vw);height:9vh;border-radius:50%;
+  background:#fdfbf6;
+  box-shadow:0 0 0 .9vh #f0e9d8,0 10px 22px rgba(100,75,40,.3)}
+.mb-doily::after{content:'';position:absolute;inset:9%;
+  border:.35vh dashed rgba(190,165,125,.55);border-radius:50%}
+
+/* 水晶球八音盒 */
+.music-box{position:absolute;left:34%;top:34%;width:min(30vh,38vw);aspect-ratio:1;
+  transform:translate(-50%,-50%);z-index:6}
+.mb-globe{position:absolute;inset:0;border-radius:50%;overflow:hidden;perspective:70vh;
+  background:radial-gradient(circle at 32% 26%,rgba(255,255,255,.5),rgba(255,255,255,.1) 26%,rgba(220,235,250,.04) 48%,rgba(120,150,190,.16) 100%);
+  border:1px solid rgba(255,255,255,.28);
+  box-shadow:inset -1.6vh -2.2vh 4vh rgba(90,120,160,.35),inset 1.2vh 1.6vh 3.2vh rgba(255,255,255,.4),
+    0 2.4vh 5vh rgba(95,72,44,.38)}
+.mb-globe::before{content:'';position:absolute;left:8%;right:8%;bottom:4%;height:10%;
+  background:radial-gradient(ellipse at center,rgba(255,255,255,.35),transparent 70%);border-radius:50%}
+.mb-globe-shine{position:absolute;left:14%;top:10%;width:26%;height:16%;border-radius:50%;
+  background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0));
+  transform:rotate(-24deg);filter:blur(1px);pointer-events:none}
+
+/* 芭蕾舞者（双面3D旋转） */
+.mb-dancer-spin{position:absolute;left:0;right:0;top:6%;bottom:8%;transform-style:preserve-3d;
+  animation:dancerSpin 9s linear infinite;animation-play-state:paused}
+.music-box.playing .mb-dancer-spin{animation-play-state:running}
+@keyframes dancerSpin{to{transform:rotateY(360deg)}}
+.dancer{position:absolute;inset:0;backface-visibility:hidden}
+.dancer-back{transform:rotateY(180deg)}
+.d-head{position:absolute;left:50%;top:0;width:14%;aspect-ratio:1;transform:translateX(-50%);
+  background:radial-gradient(circle at 40% 35%,#f8e0c8,#e8c0a0 70%);border-radius:50%}
+.d-bun{position:absolute;left:50%;top:-3%;width:9%;aspect-ratio:1;transform:translateX(-50%);
+  background:#b98a5a;border-radius:50%}
+.d-arms{position:absolute;left:50%;top:1%;width:44%;height:26%;transform:translateX(-50%);
+  border:.7vh solid #f5d9c0;border-bottom-color:transparent;border-radius:50%;box-sizing:border-box}
+.d-torso{position:absolute;left:50%;top:13%;width:11%;height:20%;transform:translateX(-50%);
+  background:linear-gradient(180deg,#f3c6d4,#e8a8bc);border-radius:45% 45% 30% 30% / 60% 60% 30% 30%}
+.d-tutu{position:absolute;left:50%;top:31%;width:52%;height:13%;transform:translateX(-50%);
+  background:linear-gradient(180deg,#f7dce6,#eec4d8 60%,#e3aec8);
+  border-radius:50%;box-shadow:0 .6vh 0 rgba(255,255,255,.55),0 1.2vh 0 rgba(233,190,215,.8)}
+.d-leg{position:absolute;top:40%;width:3.4%;height:47%;background:#f5d9c0;border-radius:1vh}
+.d-leg-l{left:46%}
+.d-leg-r{left:52%;top:42%;transform-origin:50% 0;transform:rotate(14deg)}
+
+/* 水晶球里的闪光 */
+.mb-spark{position:absolute;width:2%;aspect-ratio:1;border-radius:50%;background:#fff;opacity:0;
+  animation:twinkle 3s ease-in-out infinite;animation-play-state:paused}
+.music-box.playing .mb-spark{animation-play-state:running}
+.mb-spark.s1{left:22%;top:26%}
+.mb-spark.s2{left:70%;top:18%;animation-delay:.6s}
+.mb-spark.s3{left:78%;top:52%;animation-delay:1.2s}
+.mb-spark.s4{left:30%;top:60%;animation-delay:1.8s}
+.mb-spark.s5{left:52%;top:34%;animation-delay:2.4s}
+.mb-spark.s6{left:60%;top:70%;animation-delay:.9s}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:.9;transform:scale(1.1)}}
+
+/* 金色转盘与底座 */
+.mb-ring{position:absolute;left:50%;bottom:0;width:66%;height:9%;transform:translateX(-50%);
+  border-radius:50%;
+  background:repeating-conic-gradient(#d9b26a 0 14deg,#8a6428 14deg 28deg);
+  box-shadow:0 .8vh 1.6vh rgba(100,75,40,.35);
+  animation:spin 14s linear infinite;animation-play-state:paused}
+.music-box.playing .mb-ring{animation-play-state:running}
+.mb-base{position:absolute;left:50%;bottom:-8%;width:58%;height:16%;transform:translateX(-50%);
+  background:linear-gradient(180deg,#e8c884,#c49a50 45%,#8a6428 100%);
+  border-radius:.8vh .8vh 1.6vh 1.6vh;
+  box-shadow:0 1vh 2vh rgba(100,75,40,.4),inset 0 2px 0 rgba(255,255,255,.4)}
+.mb-key{position:absolute;right:6%;bottom:10%;width:9%;height:14%;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#e8c884,#8a6428 75%)}
+
+/* 主题相关覆盖 */
+body:where(.theme-mb) .envelope{top:44%;left:63%;transform:translate(-50%,-50%) rotate(4deg)}
+body:where(.theme-mb) .hint1{top:89%;color:rgba(122,95,61,.85)}
+body:where(.theme-mb) .hint2{color:rgba(122,95,61,.85)}
+.scene-mb .dust i{background:rgba(216,178,110,.75)}
+
+/* ============ 主题三：圣诞治愈风 ============ */
+body.theme-xmas .scene{opacity:0;visibility:hidden}
+.scene-xmas{position:fixed;inset:0;z-index:1;overflow:hidden;opacity:0;visibility:hidden;
+  background:linear-gradient(180deg,#8a4233 0%,#74352a 52%,#5f2b21 56%,#3a2212 100%);
+  transition:filter 1s ease,opacity .6s ease,visibility .6s}
+body.theme-xmas .scene-xmas{opacity:1;visibility:visible}
+.scene-xmas.dim{filter:brightness(.48) blur(4px)}
+.scene-xmas.dark{filter:brightness(.2) blur(12px)}
+.scene-xmas::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(130% 100% at 50% 40%,transparent 55%,rgba(30,8,2,.6) 100%)}
+
+.xmas-warmlight{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(60% 50% at 50% 42%,rgba(255,170,90,.16),transparent 72%);
+  animation:warmFlicker 5s ease-in-out infinite}
+.xmas-floor{position:absolute;left:0;right:0;top:56%;bottom:0;
+  background:linear-gradient(180deg,#4a2c18 0%,#3a2212 55%,#2b1709 100%)}
+.xmas-floor::before{content:'';position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 12vw,rgba(0,0,0,.35) 12vw calc(12vw + 2px)),
+    repeating-linear-gradient(0deg,transparent 0 10vh,rgba(255,190,110,.05) 10vh calc(10vh + 2px))}
+
+/* 窗外夜空 */
+.xmas-window{position:absolute;left:8%;top:14%;width:min(17vw,240px);height:32vh;overflow:hidden;
+  background:linear-gradient(180deg,#0e1833 0%,#1d2b52 55%,#2c3e6b 100%);
+  border:clamp(6px,1vh,13px) solid #4a2f1e;border-radius:6px;
+  box-shadow:inset 0 0 24px rgba(0,0,0,.4),0 8px 20px rgba(0,0,0,.35)}
+.xmas-window .mb-mull-v{background:#4a2f1e;box-shadow:none}
+.xmas-window .mb-mull-h{background:#4a2f1e;box-shadow:none}
+.xmas-moon{position:absolute;right:16%;top:14%;width:min(9vh,7vw);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#fffdf4,#f4ecc8 60%,#e8dcaa 100%);
+  box-shadow:0 0 22px rgba(255,248,220,.75),0 0 60px rgba(255,248,220,.35)}
+.xmas-stars{position:absolute;inset:0;pointer-events:none}
+.xmas-stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:0;
+  animation:starTwinkle ease-in-out infinite}
+@keyframes starTwinkle{0%,100%{opacity:.1;transform:scale(.8)}50%{opacity:1;transform:scale(1.4)}}
+
+/* 圣诞树 */
+.xmas-tree{position:absolute;right:7%;bottom:44%;width:min(26vw,340px);height:40vh;pointer-events:none}
+.tree-layer{position:absolute;left:50%;transform:translateX(-50%);
+  background:linear-gradient(180deg,#4c8f5a,#2d6237);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.tree-layer.t1{bottom:0;width:100%;height:34%}
+.tree-layer.t2{bottom:32%;width:78%;height:38%}
+.tree-layer.t3{bottom:58%;width:56%;height:42%}
+.tree-trunk{position:absolute;left:50%;bottom:-3%;transform:translateX(-50%);width:11%;height:9%;
+  background:linear-gradient(90deg,#7a4a26,#5a3418);border-radius:2px}
+.tree-star{position:absolute;left:50%;top:-1.5vh;width:11%;aspect-ratio:1;transform:translateX(-50%);
+  background:radial-gradient(circle,#fff3c4 0%,#ffd873 55%,#f5b83d 100%);
+  clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+  animation:starGlow 2.6s ease-in-out infinite}
+@keyframes starGlow{0%,100%{filter:drop-shadow(0 0 8px rgba(255,220,120,.7))}
+  50%{filter:drop-shadow(0 0 18px rgba(255,235,150,1))}}
+.ornament{position:absolute;width:7%;aspect-ratio:1;border-radius:50%;
+  box-shadow:inset -2px -3px 4px rgba(0,0,0,.3),0 0 6px rgba(255,255,255,.25)}
+.ornament.o1{left:40%;top:34%;background:radial-gradient(circle at 35% 30%,#ff8d7a,#d4402e)}
+.ornament.o2{left:60%;top:48%;background:radial-gradient(circle at 35% 30%,#ffd97a,#e0a62e)}
+.ornament.o3{left:32%;top:55%;background:radial-gradient(circle at 35% 30%,#8fc7ff,#3a7bd5)}
+.ornament.o4{left:52%;top:64%;background:radial-gradient(circle at 35% 30%,#ffb0e0,#e0559a)}
+.ornament.o5{left:70%;top:56%;background:radial-gradient(circle at 35% 30%,#c3a6ff,#7a4fd0)}
+.ornament.o6{left:44%;top:76%;background:radial-gradient(circle at 35% 30%,#ffe9a0,#e0a62e)}
+.xmas-light{position:absolute;width:1.8%;aspect-ratio:1;border-radius:50%;opacity:0;
+  animation:starTwinkle 1.8s ease-in-out infinite}
+.xmas-light.li1{left:38%;top:30%;background:#fff6d8;box-shadow:0 0 8px 2px rgba(255,230,160,.9)}
+.xmas-light.li2{left:62%;top:42%;background:#ffd873;box-shadow:0 0 8px 2px rgba(255,210,110,.9);animation-delay:-.4s}
+.xmas-light.li3{left:34%;top:50%;background:#fff6d8;box-shadow:0 0 8px 2px rgba(255,230,160,.9);animation-delay:-.8s}
+.xmas-light.li4{left:56%;top:60%;background:#ffd873;box-shadow:0 0 8px 2px rgba(255,210,110,.9);animation-delay:-1.2s}
+.xmas-light.li5{left:46%;top:70%;background:#fff6d8;box-shadow:0 0 8px 2px rgba(255,230,160,.9);animation-delay:-1.6s}
+.xmas-light.li6{left:68%;top:58%;background:#ffd873;box-shadow:0 0 8px 2px rgba(255,210,110,.9);animation-delay:-.2s}
+
+/* 礼物 */
+.gift{position:absolute;bottom:44%;width:min(9vw,110px);aspect-ratio:1.15/1;border-radius:4px;
+  box-shadow:0 6px 14px rgba(0,0,0,.3)}
+.gift.g1{left:56%;background:linear-gradient(180deg,#e0554a,#b83a30)}
+.gift.g2{left:66%;bottom:calc(44% + 2vh);width:min(7vw,90px);background:linear-gradient(180deg,#3a7bd5,#2c5f9e)}
+.gift.g3{left:60%;bottom:calc(44% + 3.6vh);width:min(5.5vw,72px);background:linear-gradient(180deg,#e0a62e,#b8821e)}
+.gift::before{content:'';position:absolute;left:0;right:0;top:50%;height:15%;transform:translateY(-50%);
+  background:rgba(255,250,235,.92)}
+.gift::after{content:'';position:absolute;left:50%;top:0;bottom:0;width:13%;transform:translateX(-50%);
+  background:rgba(255,250,235,.92)}
+
+/* 地毯 */
+.xmas-rug{position:absolute;left:50%;top:61%;transform:translate(-50%,-50%);
+  width:min(46vw,640px);height:9vh;border-radius:50%;
+  background:radial-gradient(ellipse at center,#c0463c 0%,#8f3129 72%,#7a2820 100%);
+  box-shadow:inset 0 0 26px rgba(60,15,10,.55)}
+
+/* 壁炉 */
+.xmas-fireplace{position:absolute;left:50%;top:30%;transform:translateX(-50%);
+  width:min(38vw,540px);height:26vh}
+.xmas-fireplace::before{content:'';position:absolute;inset:0;border-radius:8px;
+  background:
+    repeating-linear-gradient(90deg,rgba(30,10,5,.28) 0 2px,transparent 2px 4.6vw),
+    repeating-linear-gradient(0deg,rgba(30,10,5,.28) 0 2px,transparent 2px 2.6vh),
+    linear-gradient(180deg,#95502f 0%,#7a3f26 55%,#66331e 100%)}
+.xmas-mantel{position:absolute;left:50%;top:-1.6vh;transform:translateX(-50%);
+  width:calc(100% + 8vw);height:3.2vh;border-radius:6px;
+  background:linear-gradient(180deg,#8a5a38 0%,#6e452a 45%,#54331e 100%);
+  box-shadow:0 6px 14px rgba(0,0,0,.4),inset 0 2px 0 rgba(255,255,255,.18)}
+.xmas-firebox{position:absolute;left:50%;top:24%;transform:translateX(-50%);
+  width:46%;height:66%;border-radius:50% 50% 8px 8px / 30% 30% 8px 8px;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 80%,#3a1408 0%,#160604 70%);
+  box-shadow:inset 0 6px 16px rgba(0,0,0,.8),inset 0 0 0 6px #5a2e1e}
+.xmas-logs{position:absolute;left:50%;bottom:5%;transform:translateX(-50%);width:72%;height:22%}
+.log{position:absolute;bottom:0;height:48%;border-radius:45%/50%;
+  background:linear-gradient(180deg,#6e4326,#3f2412);
+  box-shadow:inset 0 2px 4px rgba(0,0,0,.4)}
+.log.l1{left:8%;width:44%;transform:rotate(-14deg)}
+.log.l2{left:30%;width:46%;transform:rotate(9deg);bottom:9%}
+.log.l3{left:52%;width:38%;transform:rotate(-6deg)}
+.xmas-flame{position:absolute;bottom:26%;transform-origin:50% 100%;
+  border-radius:50% 50% 50% 50% / 62% 62% 38% 38%;
+  background:radial-gradient(circle at 50% 78%,#fff3c4 0%,#ffd873 34%,#ff9a3d 64%,rgba(255,90,30,0) 100%);
+  animation:xmasFlick 1.4s ease-in-out infinite}
+.xmas-flame.f1{left:50%;width:15%;height:36%}
+.xmas-flame.f2{left:35%;width:11%;height:28%;animation-delay:-.5s}
+.xmas-flame.f3{left:65%;width:12%;height:30%;animation-delay:-.9s}
+@keyframes xmasFlick{0%,100%{transform:translateX(-50%) scale(1) rotate(-2deg);opacity:.95}
+  25%{transform:translateX(-50%) scale(1.08,.9) rotate(2deg);opacity:1}
+  50%{transform:translateX(-50%) scale(.92,1.06) rotate(-2.5deg);opacity:.85}
+  75%{transform:translateX(-50%) scale(1.05,.95) rotate(1.5deg);opacity:1}}
+.xmas-embers{position:absolute;inset:0;pointer-events:none}
+.xmas-embers i{position:absolute;border-radius:50%;background:rgba(255,190,110,.9);opacity:0;
+  animation:emberRise linear infinite}
+@keyframes emberRise{0%{transform:translate(0,0);opacity:0}10%{opacity:.9}
+  100%{transform:translate(10px,-18vh);opacity:0}}
+
+/* 圣诞袜 */
+.xmas-stocking{position:absolute;top:-1.2vh;width:min(4.5vw,60px);height:12vh;
+  background:linear-gradient(180deg,#c73e34,#9e2c24);
+  border-radius:1.2vh 1.2vh 45% 45% / 10px 10px 26% 26%;
+  transform-origin:50% 0;animation:sockSway 3.8s ease-in-out infinite;
+  box-shadow:0 4px 10px rgba(0,0,0,.3)}
+.xmas-stocking::before{content:'';position:absolute;top:0;left:0;right:0;height:24%;
+  background:#f5efe0;border-radius:1.2vh 1.2vh 0 0}
+.xmas-stocking::after{content:'';position:absolute;top:16%;right:-24%;width:28%;height:44%;
+  border-radius:0 50% 50% 0;background:linear-gradient(180deg,#c73e34,#9e2c24)}
+.xmas-stocking.s1{left:calc(50% - 16vw)}
+.xmas-stocking.s2{left:calc(50% + 12vw);animation-delay:-1.2s}
+.xmas-stocking.s3{left:calc(50% + 19vw);animation-delay:-2.4s}
+@keyframes sockSway{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+
+/* 暖光与提示 */
+.xmas-fireglow{position:absolute;left:50%;top:38%;transform:translateX(-50%);width:80vw;height:46vh;
+  border-radius:50%;pointer-events:none;filter:blur(6px);
+  background:radial-gradient(ellipse at center,rgba(255,150,60,.22),rgba(255,150,60,0) 68%);
+  animation:xmasGlowPulse 3s ease-in-out infinite}
+@keyframes xmasGlowPulse{0%,100%{opacity:.8;transform:translateX(-50%) scale(1)}
+  50%{opacity:1;transform:translateX(-50%) scale(1.06)}}
+
+.scene-xmas .title{top:8.6%;color:#f7e6c8;letter-spacing:.4em;
+  text-shadow:0 1px 3px rgba(60,20,10,.6)}
+body:where(.theme-xmas) .envelope{top:23.5%;transform:translate(-50%,-50%) rotate(-3deg)}
+body:where(.theme-xmas) .hint1{top:74%;color:rgba(255,228,200,.92)}
+
+/* 主题切换按钮 */
+.theme-btn{position:fixed;left:20px;top:20px;z-index:50;display:flex;align-items:center;gap:7px;
+  padding:9px 16px;border-radius:999px;cursor:pointer;user-select:none;
+  background:rgba(70,48,26,.6);color:#f3e2c2;font-size:13px;letter-spacing:.12em;
+  border:1px solid rgba(243,226,194,.25);transition:background .3s,transform .3s}
+.theme-btn .tb-icon{font-size:15px;line-height:1}
+
+/* ============ 手机适配 ============ */
+@media (hover:hover){
+  .envelope:hover{filter:drop-shadow(0 16px 20px rgba(0,0,0,.5)) brightness(1.05)}
+  .back-btn:hover{background:rgba(70,48,26,.85)}
+  .music-btn:hover{background:rgba(70,48,26,.85);transform:scale(1.08)}
+  .theme-btn:hover{background:rgba(70,48,26,.85);transform:scale(1.06)}
+}
+.theme-btn{top:calc(20px + env(safe-area-inset-top,0px))}
+.music-btn{bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+.music-tip{bottom:calc(36px + env(safe-area-inset-bottom,0px))}
+.back-btn{bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+.scroll-hint{bottom:calc(4% + env(safe-area-inset-bottom,0px))}
+@supports (height:100dvh){
+  .paper{height:min(80dvh,1100px)}
+}
+@media (max-width:768px){
+  .scene .title,.scene-mb .title,.scene-xmas .title{letter-spacing:.25em;font-size:clamp(12px,1.7vh,16px)}
+  .hint1,.hint2{letter-spacing:.2em;font-size:clamp(13px,1.9vh,17px)}
+  .theme-btn{padding:12px 18px}
+  .music-btn{width:56px;height:56px}
+  .disc{width:36px;height:36px}
+  .back-btn{padding:13px 22px}
+}
+@media (max-height:520px){
+  .paper{font-size:14px}
+  .letter h1{margin-bottom:1.5em}
+  .prank-big{font-size:clamp(16px,4vh,24px)}
+}
+</style>
+</head>
+<body>
+
+<!-- 场景：阳光窗台 -->
+<div class="scene" id="scene">
+  <div class="window">
+    <div class="sun"></div>
+    <div class="curtain l"></div>
+    <div class="curtain r"></div>
+    <div class="bar-h"></div>
+    <div class="bar-v"></div>
+  </div>
+  <div class="title">有一封信，在洒满阳光的窗台上等你</div>
+  <div class="ray ray1"></div>
+  <div class="ray ray2"></div>
+  <div class="ray ray3"></div>
+  <div class="light-pool"></div>
+  <div class="sill"></div>
+  <div class="plant">
+    <div class="leaf leaf1"></div>
+    <div class="leaf leaf2"></div>
+    <div class="leaf leaf3"></div>
+    <div class="leaf leaf4"></div>
+    <div class="pot"></div>
+  </div>
+  <div class="mug"><div class="steam"><i></i><i></i><i></i></div></div>
+  <div class="dust" id="dust"></div>
+</div>
+
+<!-- 场景二：八音盒 · 中世纪贵族房间 -->
+<div class="scene-mb" id="sceneMb">
+  <div class="mb-molding"></div>
+  <div class="mb-panels"></div>
+  <div class="mb-warmlight"></div>
+  <div class="mb-floor"></div>
+  <div class="mb-archwin l"><div class="mb-mull-v"></div><div class="mb-mull-h"></div></div>
+  <div class="mb-archwin r"><div class="mb-mull-v"></div><div class="mb-mull-h"></div></div>
+  <div class="mb-rose"></div>
+  <div class="mb-ray ray-m1"></div>
+  <div class="mb-ray ray-m2"></div>
+  <div class="mb-ray ray-m3"></div>
+  <div class="mb-pool"></div>
+  <div class="mb-candle l"><div class="mb-glow"></div><div class="mb-flame"></div></div>
+  <div class="mb-candle r"><div class="mb-glow"></div><div class="mb-flame"></div></div>
+  <div class="title">有一封信，静静躺在八音盒旁</div>
+  <div class="mb-table-top"></div>
+  <div class="mb-table-apron"></div>
+  <div class="mb-leg l"></div>
+  <div class="mb-leg r"></div>
+  <div class="mb-doily"></div>
+  <div class="music-box" id="musicBox">
+    <div class="mb-globe">
+      <div class="mb-dancer-spin">
+        <div class="dancer">
+          <div class="d-arms"></div>
+          <div class="d-head"></div>
+          <div class="d-bun"></div>
+          <div class="d-torso"></div>
+          <div class="d-tutu"></div>
+          <div class="d-leg d-leg-l"></div>
+          <div class="d-leg d-leg-r"></div>
+        </div>
+        <div class="dancer dancer-back">
+          <div class="d-arms"></div>
+          <div class="d-head"></div>
+          <div class="d-bun"></div>
+          <div class="d-torso"></div>
+          <div class="d-tutu"></div>
+          <div class="d-leg d-leg-l"></div>
+          <div class="d-leg d-leg-r"></div>
+        </div>
+      </div>
+      <div class="mb-spark s1"></div>
+      <div class="mb-spark s2"></div>
+      <div class="mb-spark s3"></div>
+      <div class="mb-spark s4"></div>
+      <div class="mb-spark s5"></div>
+      <div class="mb-spark s6"></div>
+      <div class="mb-globe-shine"></div>
+    </div>
+    <div class="mb-ring"></div>
+    <div class="mb-base"><div class="mb-key"></div></div>
+  </div>
+  <div class="dust" id="dustMb"></div>
+</div>
+
+<!-- 场景三：圣诞治愈风 -->
+<div class="scene-xmas" id="sceneXmas">
+  <div class="xmas-warmlight"></div>
+  <div class="xmas-floor"></div>
+  <div class="xmas-window">
+    <div class="xmas-moon"></div>
+    <div class="xmas-stars" id="xmasStars"></div>
+    <div class="mb-mull-v"></div>
+    <div class="mb-mull-h"></div>
+  </div>
+  <div class="xmas-tree">
+    <div class="tree-star"></div>
+    <div class="tree-layer t1"></div>
+    <div class="tree-layer t2"></div>
+    <div class="tree-layer t3"></div>
+    <div class="ornament o1"></div>
+    <div class="ornament o2"></div>
+    <div class="ornament o3"></div>
+    <div class="ornament o4"></div>
+    <div class="ornament o5"></div>
+    <div class="ornament o6"></div>
+    <div class="xmas-light li1"></div>
+    <div class="xmas-light li2"></div>
+    <div class="xmas-light li3"></div>
+    <div class="xmas-light li4"></div>
+    <div class="xmas-light li5"></div>
+    <div class="xmas-light li6"></div>
+    <div class="tree-trunk"></div>
+  </div>
+  <div class="gift g1"></div>
+  <div class="gift g2"></div>
+  <div class="gift g3"></div>
+  <div class="xmas-rug"></div>
+  <div class="xmas-fireplace">
+    <div class="xmas-mantel"></div>
+    <div class="xmas-firebox">
+      <div class="xmas-logs">
+        <div class="log l1"></div>
+        <div class="log l2"></div>
+        <div class="log l3"></div>
+      </div>
+      <div class="xmas-flame f1"></div>
+      <div class="xmas-flame f2"></div>
+      <div class="xmas-flame f3"></div>
+      <div class="xmas-embers" id="xmasEmbers"></div>
+    </div>
+    <div class="xmas-stocking s1"></div>
+    <div class="xmas-stocking s2"></div>
+    <div class="xmas-stocking s3"></div>
+  </div>
+  <div class="xmas-fireglow"></div>
+  <div class="title">有一封信，静静躺在壁炉旁</div>
+</div>
+
+<!-- 提示（三个主题共用） -->
+<div class="hint1" id="hint1">点一点信封，把它拿起来</div>
+
+<!-- 主题切换按钮 -->
+<div class="theme-btn" id="themeBtn" title="点击切换主题"><span class="tb-icon">☀</span><span class="tb-text">夕阳风</span></div>
+
+<!-- 信封 -->
+<div class="envelope" id="envelope">
+  <div class="env-wrap">
+    <div class="env-back"></div>
+    <div class="peek"></div>
+    <div class="env-front"></div>
+    <div class="address"><span class="for">For</span>梁师婕<span class="small">（等纸质版的到了再打开）</span></div>
+    <div class="stamp">♡</div>
+    <div class="env-flap"></div>
+    <div class="seal">梁</div>
+  </div>
+</div>
+
+<!-- 信纸 -->
+<div class="paper" id="paper"></div>
+
+<div class="hint2" id="hint2">再点一下，拆开信封</div>
+<div class="scroll-hint" id="scrollHint">往下滑动阅读 ↓</div>
+<div class="back-btn" id="backBtn">再看一遍</div>
+
+<!-- 音乐按钮 -->
+<div class="music-btn" id="musicBtn" title="播放 / 暂停音乐"><div class="disc">♪</div></div>
+<div class="music-tip" id="musicTip">点一下，播放音乐</div>
+
+<script>
+var scene = document.getElementById('scene');
+var sceneMb = document.getElementById('sceneMb');
+var sceneXmas = document.getElementById('sceneXmas');
+var envelope = document.getElementById('envelope');
+var paper = document.getElementById('paper');
+var hint1 = document.getElementById('hint1');
+var hint2 = document.getElementById('hint2');
+var backBtn = document.getElementById('backBtn');
+var scrollHint = document.getElementById('scrollHint');
+var musicBox = document.getElementById('musicBox');
+
+var stage = 0; // 0=窗台 1=居中 2=已拆开
+
+/* ---------- 场景状态（三个主题同步） ---------- */
+function setSceneMode(mode) {
+  scene.classList.toggle('dim', mode === 'dim');
+  scene.classList.toggle('dark', mode === 'dark');
+  sceneMb.classList.toggle('dim', mode === 'dim');
+  sceneMb.classList.toggle('dark', mode === 'dark');
+  sceneXmas.classList.toggle('dim', mode === 'dim');
+  sceneXmas.classList.toggle('dark', mode === 'dark');
+}
+
+/* ---------- 尘埃粒子 ---------- */
+function populateDust(id) {
+  var box = document.getElementById(id);
+  for (var i = 0; i < 30; i++) {
+    var d = document.createElement('i');
+    var s = (1 + Math.random() * 3).toFixed(1);
+    d.style.width = d.style.height = s + 'px';
+    d.style.left = (Math.random() * 100).toFixed(2) + '%';
+    d.style.top = (6 + Math.random() * 46).toFixed(2) + '%';
+    d.style.animationDuration = (7 + Math.random() * 9).toFixed(2) + 's';
+    d.style.animationDelay = (-Math.random() * 16).toFixed(2) + 's';
+    box.appendChild(d);
+  }
+}
+populateDust('dust');
+populateDust('dustMb');
+
+/* ---------- 圣诞主题粒子（火星 + 星星） ---------- */
+function populateEmbers(id, count) {
+  var box = document.getElementById(id);
+  for (var i = 0; i < count; i++) {
+    var e = document.createElement('i');
+    var s = (1.5 + Math.random() * 2.5).toFixed(1);
+    e.style.width = e.style.height = s + 'px';
+    e.style.left = (12 + Math.random() * 76).toFixed(2) + '%';
+    e.style.bottom = (6 + Math.random() * 22).toFixed(2) + '%';
+    e.style.animationDuration = (2.6 + Math.random() * 3.4).toFixed(2) + 's';
+    e.style.animationDelay = (-Math.random() * 6).toFixed(2) + 's';
+    box.appendChild(e);
+  }
+}
+populateEmbers('xmasEmbers', 16);
+
+function populateStars(id, count) {
+  var box = document.getElementById(id);
+  for (var i = 0; i < count; i++) {
+    var st = document.createElement('i');
+    st.style.left = (Math.random() * 96).toFixed(2) + '%';
+    st.style.top = (Math.random() * 92).toFixed(2) + '%';
+    st.style.animationDuration = (2 + Math.random() * 3).toFixed(2) + 's';
+    st.style.animationDelay = (-Math.random() * 5).toFixed(2) + 's';
+    box.appendChild(st);
+  }
+}
+populateStars('xmasStars', 24);
+
+/* ---------- 日期判断与内容 ---------- */
+function dateStr(d) {
+  return d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日';
+}
+
+var letterHTML =
+  '<div class="letter">' +
+  '<h1>见字如晤，别来无恙。</h1>' +
+  '<p>这封信我断断续续写了好久了，一直想不到要写点什么，就和你在电话里说的那样，我们最近的事都在电话里交流过了，从日常琐事，到纠纷烦恼以及趣味轶事。这样看来最近真的没有什么东西值得写信分享，那既然最近没有，不妨把时间拉回从前，到我们刚认识的时候。</p>' +
+  '<p class="song">♫穿梭时间的画面的钟，从反方向开始转动～回到当初…♫</p>' +
+  '<p>我们的相知充满了戏剧性和偶然性，一个人往无边无际的互联网大海里扔了个漂流瓶，另一个人在海的那边看到并捡起了它，就仅仅是这样。缘分，很奇妙吧。曾几何时，我也想过如果你没有发那条评论，或者我没回你，我们还会认识吗，这段缘还会来吗，不过想这些也没有用啊，相识就是缘。既来之，则安之。</p>' +
+  '<p>缘者，若光阴之过客，亦岁月之归人。大多数的缘，就好像潮起潮落，来的快，去的也快。网上交友更是如此，而且网上交友随机性也很强，互联网上鱼龙混杂，交友就好像开盲盒一样，指不定就开出来什么阿猫阿狗啥的，好在我比较幸运，认识了你这样子的人，虽然你记性不好，脾气也不好，天天生气，还有…（这里省略10086个缺点好吧）但是你风趣幽默，（整个人搞搞笑的，完全小乐乐来（这个划掉））总是能带给我诸多欢乐，给我一成不变的生活平添不少乐趣。</p>' +
+  '<p>OK,最后呢祝你在仅剩的一年里学习突飞猛进，弱势科目全部补足不拉后腿，强势科目越学越强再创新高。高考能够考到你理想的大学。（结尾实在不会写了，只能搞点这种老套祝福了见谅）</p>' +
+  '<div class="sign">毕&emsp;谨启</div>' +
+  '<div class="date">二〇二六年十一月初七。</div>' +
+  '</div>';
+
+function prankHTML(now) {
+  return '<div class="prank">' +
+    '<div class="prank-big">现在信才刚发出去<br>你怎么可能收到<br>还想骗我<br>你个老乐乐</div>' +
+    '<div class="prank-date">—— 检测到当前日期：' + dateStr(now) + '</div>' +
+    '</div>';
+}
+
+function decideEarly() {
+  var p = new URLSearchParams(location.search).get('preview');
+  if (p === 'letter') return false;
+  if (p === 'prank') return true;
+  return new Date() < new Date(2026, 10, 9); // 2026-11-09 零点（本地时间）
+}
+
+/* ---------- 纸尺寸适配 ---------- */
+function computePaperScale() {
+  var envW = Math.min(innerWidth * 0.8, innerHeight * 1.45);
+  var envH = envW / 1.8;
+  var pw = Math.min(innerWidth * 0.94, 1300);
+  var ph = Math.min(innerHeight * 0.8, 1100);
+  var s = Math.min(envW * 0.88 / pw, envH * 0.82 / ph);
+  paper.style.setProperty('--ps', s.toFixed(4));
+  var extra = ((envH / 2 + 24) / ph) * 100;
+  paper.style.setProperty('--out-extra', extra.toFixed(2) + '%');
+}
+
+/* ---------- 交互 ---------- */
+envelope.addEventListener('click', function () {
+  if (stage === 0) {
+    stage = 1;
+    envelope.classList.add('center');
+    setSceneMode('dim');
+    hint1.classList.add('hide');
+    computePaperScale();
+    setTimeout(function () { hint2.classList.add('show'); }, 900);
+  } else if (stage === 1) {
+    stage = 2;
+    openLetter();
+  }
+});
+
+hint2.addEventListener('click', function () {
+  if (stage === 1) { stage = 2; openLetter(); }
+});
+
+function openLetter() {
+  var now = new Date();
+  var early = decideEarly();
+  paper.innerHTML = early ? prankHTML(now) : letterHTML;
+  paper.scrollTop = 0;
+  console.log('[读信] 打开时间：' + dateStr(now) + '，模式：' + (early ? '恶作剧（11.9 之前）' : '正文（11.9 之后）'));
+
+  envelope.classList.add('open');
+  hint2.classList.remove('show');
+  setSceneMode('dark');
+  paper.classList.add('show', 'out');
+  startMusic();
+
+  setTimeout(function () {
+    paper.classList.add('full');
+    envelope.classList.add('gone');
+    backBtn.classList.add('show');
+    if (!early) scrollHint.classList.add('show');
+  }, 1500);
+}
+
+paper.addEventListener('scroll', function () { scrollHint.classList.remove('show'); });
+
+backBtn.addEventListener('click', function () {
+  stage = 0;
+  envelope.classList.remove('center', 'open', 'gone');
+  paper.classList.remove('show', 'out', 'full');
+  setSceneMode('');
+  hint1.classList.remove('hide');
+  hint2.classList.remove('show');
+  backBtn.classList.remove('show');
+  scrollHint.classList.remove('show');
+  paper.scrollTop = 0;
+});
+
+window.addEventListener('resize', function () {
+  if (stage >= 1) computePaperScale();
+});
+
+/* ---------- 音乐 ---------- */
+var musicBtn = document.getElementById('musicBtn');
+var musicTip = document.getElementById('musicTip');
+var audio = new Audio('music.mp3');
+audio.loop = true;
+audio.preload = 'auto';
+var musicPlaying = false;
+var currentTrack = 'music.mp3';
+
+audio.addEventListener('error', function () {
+  console.error('[读信] 音乐加载失败，请检查 music.mp3 是否存在');
+});
+
+function startMusic() {
+  if (musicPlaying) return;
+  audio.play().then(function () {
+    musicPlaying = true;
+    musicBtn.classList.add('playing');
+    musicBox.classList.add('playing');
+    musicTip.classList.add('hide');
+  }).catch(function () {});
+}
+
+musicBtn.addEventListener('click', function () {
+  musicTip.classList.add('hide');
+  if (musicPlaying) {
+    audio.pause();
+    musicPlaying = false;
+    musicBtn.classList.remove('playing');
+    musicBox.classList.remove('playing');
+  } else {
+    startMusic();
+  }
+});
+
+setTimeout(function () { musicTip.classList.add('show'); }, 2500);
+
+/* ---------- 主题切换 ---------- */
+var themeBtn = document.getElementById('themeBtn');
+var themes = ['sunset', 'musicbox', 'xmas'];
+var themeInfo = {
+  sunset: { icon: '☀', text: '夕阳风', track: 'music.mp3' },
+  musicbox: { icon: '♪', text: '八音盒风', track: '羽根.mp3' },
+  xmas: { icon: '✦', text: '圣诞风', track: 'lovely.mp3' }
+};
+var currentTheme = 'sunset';
+
+function switchTrack(file) {
+  if (file === currentTrack) return;
+  currentTrack = file;
+  var wasPlaying = musicPlaying;
+  if (wasPlaying) audio.pause();
+  audio.src = file;
+  if (wasPlaying) audio.play().catch(function () {});
+}
+
+function applyTheme(theme) {
+  currentTheme = theme;
+  var info = themeInfo[theme];
+  document.body.classList.toggle('theme-mb', theme === 'musicbox');
+  document.body.classList.toggle('theme-xmas', theme === 'xmas');
+  themeBtn.querySelector('.tb-icon').textContent = info.icon;
+  themeBtn.querySelector('.tb-text').textContent = info.text;
+  switchTrack(info.track);
+  try { localStorage.setItem('letter-theme', theme); } catch (e) {}
+}
+
+themeBtn.addEventListener('click', function () {
+  applyTheme(themes[(themes.indexOf(currentTheme) + 1) % themes.length]);
+});
+
+var savedTheme = 'sunset';
+try { savedTheme = localStorage.getItem('letter-theme') || 'sunset'; } catch (e) {}
+if (themes.indexOf(savedTheme) === -1) savedTheme = 'sunset';
+applyTheme(savedTheme);
+</script>
+</body>
+</html>
